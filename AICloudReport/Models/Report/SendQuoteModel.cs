@@ -13,6 +13,7 @@ namespace AICloudReport.Models.Report
 		public DateTime AssignmentDate { get; set; }
 		public string Notes { get; set; }
 		public int Customer_Id { get; set; }
+		public Customer Customer { get; set; }
 		public int Employee_Id { get; set; }
 		public DateTime StartDate { get; set; }
 		public DateTime EndDate { get; set; }

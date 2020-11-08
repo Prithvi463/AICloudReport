@@ -150,9 +150,9 @@
             <h4>
                 Alan Thomas<br><br>
                 AI Cloud Builders<br><br>
-                Iriving<br><br>
-                Dallas,Texas<br><br>
-                +1 469-998-1977
+                151 Hannah Cir<br><br>
+                Cedar Hills, Texas - 75106<br><br>
+                M : +1 469-998-1977
             </h4>
         </div>
         <div class="column">
@@ -168,16 +168,16 @@
                 <h3>Ship To (if Different):</h3>
             </div>
             <h4 class="inv-items">
-                [Name]<br><br>
-                [Company Name]<br><br>
-                [Street Address]<br><br>
-                [City, ST Zip Code]<br><br>
-                [Phone]
+                @Model.Customer.FirstName + @Model.Customer.LastName<br><br>
+                @Model.Customer.Company<br><br>
+                @Model.Customer.Street<br><br>
+                @Model.Customer.City,@Model.Customer.PinCode<br><br>
+                M : @Model.Customer.MobileNo
             </h4>
         </div>
     </div>
 
-    <table>
+    @*<table>
         <tr>
             <th>Salesperson</th>
             <th>Shipping Method</th>
@@ -194,7 +194,7 @@
             <td></td>
             <td></td>
         </tr>
-    </table>
+    </table>*@
     <table>
         <tr>
             <th>Item #</th>
