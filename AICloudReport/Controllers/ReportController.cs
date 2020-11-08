@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AICloudReport.Models.Report;
 using AICloudReport.Services;
 using jsreport.AspNetCore;
 using jsreport.Types;
@@ -22,12 +23,12 @@ namespace AICloudReport.Controllers
 		}
 
 		[MiddlewareFilter(typeof(JsReportPipeline))]
-		public IActionResult SendQuote()
+		public IActionResult SendQuote([FromBody]SendQuote sendQuoteModel)
 		{
 			HttpContext.JsReportFeature()
 				.Recipe(Recipe.PhantomPdf)
 				.Configure((r) => r.Template.Phantom = new Phantom { Format = PhantomFormat.A4, Margin = "0cm" });
-			return View();
+			return View(sendQuoteModel);
 		}
 	}
 }

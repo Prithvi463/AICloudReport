@@ -1,5 +1,9 @@
-﻿@{
-    Layout = null;
+﻿@model AICloudReport.Models.Report.SendQuote;
+
+@{
+  Layout = null;
+  var materials = Model.Materials;
+  var services = Model.Services;
 }
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -138,13 +142,13 @@
             Uplad Logo   <input type="file" class="myFile" id="myFile" name="filename">
             <input type="submit">
         </form>*@
-            <img src="~/images/aicloud.png" alt="aicloud" class="myFile" width="400" height="100">
+            <img src="https://www.aicloudbuilders.com/wp-content/uploads/2020/04/cropped-AICloud_Website-Logo.png" alt="aicloud" class="myFile" width="400" height="100">
             <!-- <input class="image-upload" type="text"> -->
             <div class="bill">
                 <h3>Bill To:</h3>
             </div>
             <h4>
-                Alan <br><br>
+                Alan Thomas<br><br>
                 AI Cloud Builders<br><br>
                 Iriving<br><br>
                 Dallas,Texas<br><br>
@@ -154,11 +158,11 @@
         <div class="column">
             <h1 class="invoice">Invoice</h1>
             <h4 class="inv-items">
-                Date: <input class="box" type="text"><br><br>
-                Invoice #:   <input class="box1" type="text"><br><br>
-                Customer ID: <input class="box2" type="text"><br><br>
-                Purchase Order #: <input class="box3" type="text"><br><br>
-                Payment Due by: <input class="box4" type="text">
+                Date: <input class="box" type="text" value="@DateTime.Now.ToString("dd/MM/yyyy")"><br><br>
+                Invoice #:   <input class="box1" type="text" value="00001"><br><br>
+                Customer ID: <input class="box2" type="text" value="001"><br><br>
+                Purchase Order #: <input class="box3" type="text" value="098732"><br><br>
+                Payment Due by: <input class="box4" type="text" value="@DateTime.Now.AddDays(30).ToString("dd/MM/yyyy")">
             </h4>
             <div class="ship">
                 <h3>Ship To (if Different):</h3>
@@ -199,20 +203,24 @@
             <th>Unit Price</th>
             <th>Line Total</th>
         </tr>
-        <tr>
+        @foreach (var material in Model.Materials)
+        {
+            <tr>
+                <td>1</td>
+                <td>@material.Name</td>
+                <td>@material.Quantity</td>
+                <td>@material.UnitPrice</td>
+                <td>@material.UnitPrice</td>
+            </tr>
+        }
+
+        @*<tr>
             <td>112233</td>
             <td>Printer Paper A4 500*5</td>
             <td>2</td>
             <td>35.00</td>
             <td>70.00</td>
-        </tr>
-        <tr>
-            <td>112233</td>
-            <td>Printer Paper A4 500*5</td>
-            <td>2</td>
-            <td>35.00</td>
-            <td>70.00</td>
-        </tr>
+        </tr>*@
         <tr>
             <td></td>
             <td></td>
